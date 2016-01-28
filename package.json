@@ -4,7 +4,10 @@
   "description": "Starter pack for react and redux application",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel ./src --out-dir ./lib && webpack -p",
+    "lint": "eslint 'src/**/*.@(js|jsx)'",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
+    "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +29,9 @@
   "dependencies": {
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "react-redux": "^4.0.6"
+    "react-redux": "^4.0.6",
+    "redux": "^3.0.6",
+    "webpack": "^1.12.12"
   },
   "devDependencies": {
     "babel": "^6.3.26",
